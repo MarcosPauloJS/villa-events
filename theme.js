@@ -1,17 +1,15 @@
 const darkTheme = {
-  PRIMARY_COLOR: '#000',
-  SECONDARY_COLOR: '#73737d',
-  TITLE_COLOR: '#fff',
-  BACKGROUND_COLOR: '#111216',
-  BUTTON_COLOR: '#fff',
+  PRIMARY_COLOR: '#17627E',
+  SECONDARY_COLOR: '#CE4040',
+  TEXT_DARK: '#000',
+  TEXT_LIGHT: '#504A4A',
 };
 
 const lightTheme = {
-  PRIMARY_COLOR: '#fff',
-  SECONDARY_COLOR: '#73737d',
-  TITLE_COLOR: '#000',
-  BACKGROUND_COLOR: '#fff',
-  BUTTON_COLOR: '#000',
+  PRIMARY_COLOR: '#17627E',
+  SECONDARY_COLOR: '#CE4040',
+  TEXT_DARK: '#000',
+  TEXT_LIGHT: '#504A4A',
 };
 
 export { lightTheme, darkTheme};
