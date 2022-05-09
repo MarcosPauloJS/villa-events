@@ -1,4 +1,5 @@
 import { Text, View } from 'react-native';
+import { useState } from 'react/cjs/react.production.min';
 import styled from 'styled-components/native'
 import CustomButton from '../../components/Button';
 import Card from '../../components/card';
@@ -31,10 +32,10 @@ export default function Home() {
   const events = [
     {
       id: 0,
-      title: "show da aurora",
-      description: "Aurora Aksnes, conhecida profissionalmente apenas como Aurora e às vezes estilizado em caixa alta como AURORA, é uma cantora e compositora norueguesa. Seu EP de estreia \"Running with the Wolves\" foi lançado pela gravadora Decca Records em maio de 2015",
+      title: "Parque de diversões",
+      description: "Hopi Hari é um parque temático brasileiro localizado no quilômetro 72 da Rodovia dos Bandeirantes, no município de Vinhedo, interior do estado de São Paulo.",
       date: "2022-01-04 10:00",
-      thumbnailUrl: "https://studiosol-a.akamaihd.net/uploadfile/letras/fotos/3/2/0/4/32045003a7ad7e1322d79bfdc6a77c4b.jpg",
+      thumbnailUrl: "https://expoinga.com.br/2019/wp-content/uploads/2019/04/Roda-gigante-5.jpg",
     },
     {
       id: 1,
@@ -42,9 +43,9 @@ export default function Home() {
       description: "Aurora Aksnes, conhecida profissionalmente apenas como Aurora e às vezes estilizado em caixa alta como AURORA, é uma cantora e compositora norueguesa. Seu EP de estreia \"Running with the Wolves\" foi lançado pela gravadora Decca Records em maio de 2015",
       date: "2022-05-15 10:00",
       thumbnailUrl: "https://studiosol-a.akamaihd.net/uploadfile/letras/fotos/3/2/0/4/32045003a7ad7e1322d79bfdc6a77c4b.jpg",
-    },
+    }
   ]
-  
+
   return (
     <Container>
       <Title>Eventos</Title>

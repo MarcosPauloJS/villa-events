@@ -72,7 +72,7 @@ const getCounter = (date) => {
   return counter
 }
 
-function Card({ id, title, description, date, thumbnailUrl}) {
+function Card({ id, title, description, date, thumbnailUrl, onShow, onDelete}) {
   const counter = getCounter(date);
   const dateFormatted = isValid(parseISO(date)) ? format(parseISO(date), "dd/MM/yyyy á's' HH:mm") : ''
 
@@ -104,8 +104,8 @@ function Card({ id, title, description, date, thumbnailUrl}) {
         <Description numberOfLines={5}>{description}</Description>
 
         <FooterBottons>
-          <CustomButton text="VER MAIS"/>
-          <CustomButton text="EXCLUIR" bgColor='#CE4040'/>
+          <CustomButton text="VER MAIS" onPress={ () => onShow(id)}/>
+          <CustomButton text="EXCLUIR"  onPress={ () => onDelete(id)} bgColor='#CE4040'/>
         </FooterBottons>
       </Content>
     </Container>
@@ -118,7 +118,9 @@ Card.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   date: PropTypes.string,
-  thumbnailUrl: PropTypes.string
+  thumbnailUrl: PropTypes.string,
+  onShow: PropTypes.func,
+  onDelete: PropTypes.func
 };
 
 Card.defaultProps = {
@@ -126,7 +128,9 @@ Card.defaultProps = {
   title: '',
   description: '',
   date: '',
-  thumbnailUrl: ''
+  thumbnailUrl: '',
+  onShow: () => {},
+  onDelete: () => {}
 };
 
 export default Card
