@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 const ButtonContainer = styled.TouchableOpacity`
   background-color: ${props => props?.bgColor ? props.bgColor : props?.theme?.PRIMARY_COLOR};
-  margin-vertical: 40px;
   width: auto;
   height: auto;
   padding: 10px 20px;
@@ -13,7 +12,7 @@ const ButtonContainer = styled.TouchableOpacity`
 
 const ButtonText = styled.Text`
   color: ${props => props?.color ? props.color : '#FFF'};
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
 `;
 
