@@ -15,6 +15,8 @@ import {
   Badge,
   Label,
   Frame,
+  EndLabel,
+  EndLabelContainer
 } from './styles'
 
 const getCounter = (date) => {
@@ -24,7 +26,8 @@ const getCounter = (date) => {
     hour: 'hora',
     mouth: 'meses',
     day: 'dias',
-    year: 'anos'
+    year: 'anos',
+    end: 'fim'
   }
 
   date = parseISO(date);
@@ -36,23 +39,30 @@ const getCounter = (date) => {
     }
   }
 
-  let timeToEnd = differenceInDays(new Date(), date)
+  let timeToEnd = differenceInDays(date, new Date())
   
+  if(timeToEnd < 0) {
+    timeToEnd = differenceInHours(date, new Date())
+    counter.value = 0
+    counter.label =  labels.end
+    return counter
+  }
+
   if(timeToEnd < 1) {
-    timeToEnd = differenceInHours(new Date(), date)
-    counter.value = timeToEnd > 1 ? timeToEnd : differenceInHours(new Date(), date)
+    timeToEnd = differenceInHours(date, new Date())
+    counter.value = timeToEnd > 1 ? timeToEnd : differenceInHours(date, new Date())
     counter.label = timeToEnd > 1 ? counter.label = labels.second : counter.label = labels.hour
     return counter
   }
   
   if(timeToEnd >= 365) {
-    counter.value = differenceInYears(new Date(), date)
+    counter.value = differenceInYears(date, new Date())
     counter.label = labels.year
     return counter
   }
 
   if(timeToEnd >= 31) {
-    counter.value = differenceInMonths(new Date(), date)
+    counter.value = differenceInMonths(date, new Date())
     counter.label = labels.mouth
     return counter
   }
@@ -64,8 +74,7 @@ const getCounter = (date) => {
 
 function Card({ id, title, description, date, thumbnailUrl}) {
   const counter = getCounter(date);
-  console.log(counter)
-  const dateFormatted = isValid(date) ? format(date, "dd/MM/yyyy á's' HH:mm") : ''
+  const dateFormatted = isValid(parseISO(date)) ? format(parseISO(date), "dd/MM/yyyy á's' HH:mm") : ''
 
   return (
     <Container>
@@ -78,13 +87,20 @@ function Card({ id, title, description, date, thumbnailUrl}) {
         </Counter>
         <Label>{counter.label}</Label>
       </Badge>
+
+      {counter.value === 0 &&
+        <EndLabelContainer>
+          <EndLabel>Finalizado</EndLabel>
+        </EndLabelContainer>
+      }
+
       <Thumbnail>
         <ThumbnailImage source={{uri: thumbnailUrl}}/>
         <DateView>{dateFormatted}</DateView>
       </Thumbnail>
 
       <Content>
-        <Title>{title}</Title>
+        <Title numberOfLines={1}>{title}</Title>
         <Description numberOfLines={5}>{description}</Description>
 
         <FooterBottons>

@@ -3,16 +3,19 @@ import styled from 'styled-components/native'
 const Container = styled.View`
   display: flex;
   flex-direction: row;  
-  width: 90%;
+  width: 100%;
   background: #FFFFFF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   padding: 20px 10px;
+  margin: 15px 0;
+  filter: blur(55px);;
 `
 
 const Thumbnail = styled.View`
-  width: 39%;
+  width: 40%;
   min-width: 100px;
+  margin-right: 10px;
 `
 
 const ThumbnailImage = styled.Image`
@@ -86,6 +89,27 @@ const Badge = styled.View`
   height: 90px;
 `
 
+const EndLabelContainer = styled.View`
+  width: 120%;
+  height: 120%;
+  position: absolute;
+  background-color: rgba(0,0,0,0.4);
+  color: #FFF;
+  z-index: 1000;
+`
+
+const EndLabel = styled.Text`
+  top: 40%;
+  left: 30%;
+  position: absolute;
+  padding: 10px 30px;
+  background-color: #202124;
+  color: #FFF;
+  font-size: 24px;
+  transform: rotate(-15deg);
+  
+`
+
 const Label = styled.Text`
   background-color:${props => props.theme.SECONDARY_COLOR};
   color: #FFF;
@@ -107,5 +131,7 @@ export {
   Counter,
   Badge,
   Label,
-  Frame
+  Frame,
+  EndLabel,
+  EndLabelContainer
 }
