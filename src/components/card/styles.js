@@ -60,6 +60,41 @@ const FooterBottons = styled.View`
   justify-content: space-between;
 `
 
+const Counter = styled.Text`
+  position: absolute;
+  top: 10%;
+  left: 30%;
+  font-weight: 400;
+  font-size: 24px;
+  color: ${props => props.theme.SECONDARY_COLOR};
+`
+const Frame = styled.View`
+  border: 3px solid ${props => props.theme.SECONDARY_COLOR};
+  width: 50px;
+  height: 50px;
+  transform: rotate(45deg)
+`
+
+const Badge = styled.View`
+  top: -10px;
+  right: -10px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90px;
+  height: 90px;
+`
+
+const Label = styled.Text`
+  background-color:${props => props.theme.SECONDARY_COLOR};
+  color: #FFF;
+  font-size: 18px;
+  text-transform: uppercase;
+  padding: 4px 15px;
+  margin-top: -10px;
+`
+
 export {
   Container,
   Thumbnail,
@@ -68,5 +103,9 @@ export {
   Title,
   DateView,
   Description,
-  FooterBottons
+  FooterBottons,
+  Counter,
+  Badge,
+  Label,
+  Frame
 }
