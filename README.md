@@ -53,7 +53,7 @@ ou poderá colocar a data do evento (o aplicativo deverá aceitar as duas formas
 
 O design foi protótipado no figma com base no levantamento de requisitos
 
-![Capturar.PNG](Desafio%20Vila%20App(Vila%20Event)%20683d784ff6694001adb3c645fa6516cc/Capturar.png)
+![Capturar.PNG](layout.png)
 
 ## Requisitos técnicos
 
